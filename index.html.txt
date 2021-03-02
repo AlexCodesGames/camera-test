@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE  html>
 <html lang=”en”>
 	<head>
 		<meta charset="utf-8">
@@ -12,15 +12,13 @@
 		<link rel="stylesheet" href="style.css"> 
 	</head>
 	<body>
+		<h1>Camera Output</h1>
+	
 		<!-- Reference to your JavaScript file -->
 		<script src="app.js"></script> 
 		
 		<!-- Camera -->
 		<main id="camera">
-		
-    <!-- Camera view -->
-    <video id="camera--view" autoplay playsinline></video>
-	
 			<!-- Camera sensor -->
 			<canvas id="camera--sensor"></canvas>
 
