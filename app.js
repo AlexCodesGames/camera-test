@@ -45,12 +45,16 @@ function cameraStart()
 //attempts a connection to the device's camera
 buttonConnect.onclick = function() 
 {
-	if(camera.style.display === "none")
+	if(blockCamera.style.display === "none")
 	{
         	console.debug("attempting connection...");
 		
 		blockLoading.style.display = "block";
 		blockCamera.style.display = "none";
+	}
+	else
+	{
+        	console.debug("connection already established");
 	}
 }
 //called when a connection has successfully been made and streaming has begun
