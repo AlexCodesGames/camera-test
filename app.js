@@ -15,7 +15,9 @@ const blockCamera = document.querySelector("#cameraBlock")
 const cameraView = document.querySelector("#cameraVideo")
 const cameraOutput = document.querySelector("#cameraOutput")
 const cameraSensor = document.querySelector("#cameraCanvas")
+//	connection
 var xhr;
+var rtcConnection;
 
 //used to initialize the webpage's entry state
 function initialize() 
@@ -46,7 +48,7 @@ function cameraStart()
 }
 
 //attempts a connection to the device's camera
-buttonConnect.onclick = function() 
+function connectionAttempt()
 {
 	if(blockCamera.style.display === "none")
 	{
@@ -60,7 +62,7 @@ buttonConnect.onclick = function()
 		xhr.open('GET', "./CONNECT-"+textClientIP.innerHTML, true);
 		xhr.send();
 		
-		xhr.addEventListener("readystatechange", processConnection, false);
+		xhr.addEventListener("readystatechange", connectionProcess, false);
 	}
 	else
 	{
@@ -68,27 +70,37 @@ buttonConnect.onclick = function()
 	}
 }
 //processes returning connection details
-function processConnection(e)
+function connectionProcess(e)
 {
 	//check ready-state change type and success
 	if(xhr.readyState == 4 && xhr.status == 200)
    	{
+		//record host ip
 		textHostIP.innerHTML = xhr.responseText;
 		
+		//send call to start streaming
+		xhr = new XMLHttpRequest();
+		xhr.open('GET', "./START", true);
+		xhr.send();
 		
+		xhr.addEventListener("readystatechange", connectionSuccessful, false);
    	}
+	//if ready-state is finished but failed to aquire, disconnect
+	else if(xhr.readyState == 4)
+	{
+		connectionDisconnect();
+	}
 }
 //called when a connection has successfully been made and streaming has begun
-function successfulConnection() 
+function connectionSuccessful() 
 {
 	console.debug("connection established");
 	
 	blockLoading.style.display = "none";
 	blockCamera.style.display = "block";
 }
-
 //ends any pending or existing connection
-buttonDisconnect.onclick = function()
+function connectionDisconnect
 {
 	console.debug("connection closed");
 	
@@ -98,6 +110,9 @@ buttonDisconnect.onclick = function()
 	textHostIP.innerHTML = "disconnected";
 }
 
+//set up button functionality
+buttonDisconnect.onclick = function() { connectionDisconnect() };
+buttonConnect.onclick = function() { connectionAttempt }
 // Take a picture when picture button is tapped
 buttonSnapshot.onclick = function() 
 {
