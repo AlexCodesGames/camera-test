@@ -71,7 +71,7 @@ function processConnection(e)
 	//check ready-state change type and success
 	if(xhr.readyState == 4 && xhr.status == 200)
    	{
-		textHostIP.innerHTML = 'Doorbell Host IP: ' + xhr.responseText;
+		textHostIP.innerHTML = xhr.responseText;
 		
 		
    	}
