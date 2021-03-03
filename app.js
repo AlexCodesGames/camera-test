@@ -15,6 +15,7 @@ const blockCamera = document.querySelector("#cameraBlock")
 const cameraView = document.querySelector("#cameraVideo")
 const cameraOutput = document.querySelector("#cameraOutput")
 const cameraSensor = document.querySelector("#cameraCanvas")
+var xhr;
 
 //used to initialize the webpage's entry state
 function initialize() 
@@ -52,14 +53,26 @@ buttonConnect.onclick = function()
 		blockLoading.style.display = "block";
 		blockCamera.style.display = "none";
 		
-		let xhr = new XMLHttpRequest();
-		xhr.open('GET', "./index.html", true);
+		//create a connection request
+		xhr = new XMLHttpRequest();
+		xhr.open('GET', "./CONNECT", true);
 		xhr.send();
+		
+		xhr.addEventListener("readystatechange", processConnection, false);
 	}
 	else
 	{
         	console.debug("connection already established");
 	}
+}
+//processes returning connection details
+function processConnection(e)
+{
+	//check ready-state change type and success
+	if(xhr.readyState == 4 && xhr.status == 200)
+   	{
+		textHostIP.innerHTML = 'Doorbell Host IP: ' + xhr.responseText;
+   	}
 }
 //called when a connection has successfully been made and streaming has begun
 function successfulConnection() 
