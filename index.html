@@ -5,31 +5,69 @@
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<!-- Name of your awesome camera app -->
-		<title>Camera App</title> 
+		<!-- name for webpage header -->
+		<title>MobileDoorbell</title> 
 		
 		<!-- Link to your main style sheet-->
 		<link rel="stylesheet" href="style.css"> 
 	</head>
-	<body>
-		<h1>Camera Output</h1>
-	
-		<!-- Reference to your JavaScript file -->
-		<script src="app.js"></script> 
-		
-		<!-- Camera -->
-		<main id="camera">
-			<!-- Camera sensor -->
-			<canvas id="camera--sensor"></canvas>
+	<body onload="initialize()">
+		<div id="titleBlock">
+			<center><h1><strong>Camera Output</strong></h1></center>
+			<center><h4 id="textClientIP">Client Pending...</h4></center>
+			<center><h4 id="textHostIP">Doorbell Host IP Pending...</h4></center>
+		</div><hr/>
+		<div id="loadingBlock" class="viewDiv">
+			<img src='images/loading.gif' width='100%' height='100%' alt='loading gif'/>
+		</div>
+		<div id="cameraBlock" class="viewDiv">
+			<!-- Camera -->
+			<main id="camera">
+				<!-- Camera sensor -->
+				<canvas id="camera--sensor"></canvas>
 
-			<!-- Camera view -->
-			<video id="camera--view" autoplay playsinline></video>
-			
-			<!-- Camera output -->
-			<img src="//:0" alt="" id="camera--output">
-			
-		    <!-- Camera trigger -->
-			<button id="camera--trigger">Take a picture</button>
-		</main>
+				<!-- Camera view -->
+				<video id="camera--view" autoplay playsinline></video>
+				
+				<!-- Camera output -->
+				<img src="//:0" alt="" id="camera--output">
+				
+				<!-- Camera trigger -->
+				<button id="camera--trigger">Take a picture</button>
+			</main>
+		</div><hr/>
+		<!-- Reference to your JavaScript file -->
+		<!-- <script src="app.js"></script> -->
+		<script>
+	function initialize() 
+	{
+		document.getElementById("loadingBlock").style.display = "block";
+		document.getElementById("cameraBlock").style.display = "none";
+		
+		document.getElementById('textClientIP').innerHTML = 'Connecting IP: ' + json.ip;
+	}
+		</script>
+		<script>
+	function loadToggle() 
+	{
+		var x = document.getElementById("loadingBlock");
+		if (x.style.display === "none")
+		{
+			x.style.display = "block";
+		}
+		else
+		{
+			x.style.display = "none";
+		}
+	}
+		</script>
+		<script type="application/javascript">
+	function getIP(json) 
+	{
+		document.getElementById('textClientIP').innerHTML = 'Connecting IP: ' + json.ip;
+	}
+		</script>
+		<script src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+		<script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
 	</body>
 </html>
