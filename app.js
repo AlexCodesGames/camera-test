@@ -25,6 +25,7 @@ function initialize()
 	blockLoading.style.display = "none";
 	blockCamera.style.display = "none";
 	
+	console.debug(buttonConnect);
 	console.debug("Initialization complete");
 }
 // Access the device camera and stream to cameraView
