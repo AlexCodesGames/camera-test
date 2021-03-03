@@ -9,7 +9,7 @@
 		<title>MobileDoorbell</title> 
 		
 		<!-- Link to your main style sheet-->
-		<link rel="stylesheet" href="style.css"> 
+		<link rel="stylesheet" href="https://rabidcodehog.github.io/camera-test/style.css"> 
 	</head>
 	<body onload="initialize()">
 		<div id="titleBlock">
@@ -18,8 +18,12 @@
 			<center><h4 id="textHostIP">Doorbell Host IP Pending...</h4></center>
 		</div><hr/>
 		<div id="loadingBlock" class="viewDiv">
-			<img src='images/loading.gif' width='100%' height='100%' alt='loading gif'/>
+			<img src='https://rabidcodehog.github.io/camera-test/images/loading.gif' width='100%' height='100%' alt='loading gif'/>
 		</div>
+		<div><center>
+			<input type='button' onclick='turnOn()' value='CONNECT'/>
+			<input type='button' onclick='turnOff()' value='DISCONNECT'/>
+		</center></div>
 		<div id="cameraBlock" class="viewDiv">
 			<!-- Camera -->
 			<main id="camera">
@@ -48,16 +52,26 @@
 	}
 		</script>
 		<script>
-	function loadToggle() 
+	function turnOn() 
 	{
-		var x = document.getElementById("loadingBlock");
-		if (x.style.display === "none")
+		var load = document.getElementById("loadingBlock");
+		var camera = document.getElementById("cameraBlock");
+		if (camera.style.display === "none")
 		{
-			x.style.display = "block";
+			load.style.display = "none";
+			camera.style.display = "block";
 		}
-		else
+	}
+		</script>
+		<script>
+	function turnOff()
+	{
+		var load = document.getElementById("loadingBlock");
+		var camera = document.getElementById("cameraBlock");
+		if (camera.style.display === "block")
 		{
-			x.style.display = "none";
+			load.style.display = "block";
+			camera.style.display = "none";
 		}
 	}
 		</script>
