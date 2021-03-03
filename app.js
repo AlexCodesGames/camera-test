@@ -26,6 +26,8 @@ function initialize()
 	blockLoading.style.display = "none";
 	blockCamera.style.display = "none";
 	
+	textHostIP.innerHTML = "disconnected";
+	
 	console.debug("initialization complete");
 }
 // Access the device camera and stream to cameraView
@@ -92,6 +94,8 @@ buttonDisconnect.onclick = function()
 	
 	blockLoading.style.display = "none";
 	blockCamera.style.display = "none";
+	
+	textHostIP.innerHTML = "disconnected";
 }
 
 // Take a picture when picture button is tapped
