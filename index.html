@@ -45,21 +45,6 @@
 		</div><hr/>
 		<!-- javascript file reference -->
 		<script src="app.js"></script>
-		<script>
-	function initialize(json) 
-	{
-		document.getElementById("loadingBlock").style.display = "none";
-		document.getElementById("cameraBlock").style.display = "none";
-		
-		document.getElementById('textClientIP').innerHTML = 'Connecting IP: ' + json.ip;
-	}
-		</script>
-		<script type="application/javascript">
-	function getIP(json) 
-	{
-		document.getElementById('textClientIP').innerHTML = 'Connecting IP: ' + json.ip;
-	}
-		</script>
 		<script src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
 		<script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
 	</body>
