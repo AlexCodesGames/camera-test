@@ -2,6 +2,9 @@
 var constraints = { video: { facingMode: "user" }, audio: false };
 
 // Define constant links to document components
+//	text
+const textClientIP = document.querySelector("#textClientIP")
+const textHostIP = document.querySelector("#textHostIP")
 //	action buttons
 const buttonConnect = document.querySelector("#buttonConnect")
 const buttonDisconnect = document.querySelector("#buttonDisconnect")
@@ -12,7 +15,15 @@ const blockCamera = document.querySelector("#cameraBlock")
 const cameraView = document.querySelector("#cameraVideo")
 const cameraOutput = document.querySelector("#cameraOutput")
 const cameraSensor = document.querySelector("#cameraCanvas")
-	
+
+//used to initialize the webpage's entry state
+function initialize(json) 
+{
+	blockLoading.style.display = "none";
+	blockCamera.style.display = "none";
+
+	textClientIP.innerHTML = 'Connecting IP: ' + json.ip;
+}
 // Access the device camera and stream to cameraView
 function cameraStart() 
 {
@@ -61,5 +72,11 @@ buttonSnapshot.onclick = function()
 	cameraOutput.classList.add("taken");
 };
 
-// Start the video stream when the window loads
-//window.addEventListener("load", cameraStart, false);
+//updates the client's ip
+function getIP(json) 
+{
+	textClientIP.innerHTML = 'Connecting IP: ' + json.ip;
+}
+
+//sets initializer to activate when the webpage loads
+window.addEventListener("load", initialize, false);
