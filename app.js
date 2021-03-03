@@ -19,28 +19,27 @@ const cameraSensor = document.querySelector("#cameraCanvas")
 //used to initialize the webpage's entry state
 function initialize() 
 {
-        console.debug("Initializing...");
+        console.debug("initializing...");
 	
 	//set default view state
 	blockLoading.style.display = "none";
 	blockCamera.style.display = "none";
 	
-	console.debug(buttonConnect);
-	console.debug("Initialization complete");
+	console.debug("initialization complete");
 }
 // Access the device camera and stream to cameraView
 function cameraStart() 
 {
-    navigator.mediaDevices
-        .getUserMedia(constraints)
-        .then(function(stream) {
-        track = stream.getTracks()[0];
-        cameraView.srcObject = stream;
-    })
-    .catch(function(error) 
-	{
-        console.error("Oops. Something is broken.", error);
-    });
+	console.debug("beginning camera stream...");
+	
+	navigator.mediaDevices
+		.getUserMedia(constraints)
+		.then(function(stream) { track = stream.getTracks()[0]; cameraView.srcObject = stream; })
+		.catch(function(error) 
+		{
+			console.error("Oops. Something is broken.", error);
+		});
+	console.debug("camera stream started");
 }
 
 //attempts a connection to the device's camera
@@ -48,7 +47,7 @@ buttonConnect.onclick = function()
 {
 	if(camera.style.display === "none")
 	{
-        	console.debug("Attempting connection...");
+        	console.debug("attempting connection...");
 		
 		blockLoading.style.display = "block";
 		blockCamera.style.display = "none";
@@ -57,7 +56,7 @@ buttonConnect.onclick = function()
 //called when a connection has successfully been made and streaming has begun
 function successfulConnection() 
 {
-	console.debug("Connection established");
+	console.debug("connection established");
 	
 	blockLoading.style.display = "none";
 	blockCamera.style.display = "block";
@@ -66,7 +65,7 @@ function successfulConnection()
 //ends any pending or existing connection
 buttonDisconnect.onclick = function()
 {
-	console.debug("Connection closed");
+	console.debug("connection closed");
 	
 	blockLoading.style.display = "none";
 	blockCamera.style.display = "none";
@@ -75,7 +74,7 @@ buttonDisconnect.onclick = function()
 // Take a picture when picture button is tapped
 buttonSnapshot.onclick = function() 
 {
-	console.debug("Taking snapshot...");
+	console.debug("taking snapshot...");
 	
 	cameraSensor.width = cameraView.videoWidth;
 	cameraSensor.height = cameraView.videoHeight;
@@ -83,7 +82,7 @@ buttonSnapshot.onclick = function()
 	cameraOutput.src = cameraSensor.toDataURL("image/webp");
 	cameraOutput.classList.add("taken");
 	
-	console.debug("Snapshot saved");
+	console.debug("snapshot saved");
 };
 
 //sets initializer to activate when the webpage loads
