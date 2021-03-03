@@ -45,6 +45,12 @@
 		</div><hr/>
 		<!-- javascript file reference -->
 		<script src="app.js"></script>
+		<script>
+			function getIP(json) 
+			{
+				textClientIP.innerHTML = 'Connecting IP: ' + json.ip;
+			}
+		</script>
 		<!-- <script src="https://api.ipify.org?format=jsonp&callback=getIP"></script> -->
 		<!-- <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script> -->
 	</body>
