@@ -55,7 +55,7 @@ buttonConnect.onclick = function()
 		
 		//create a connection request
 		xhr = new XMLHttpRequest();
-		xhr.open('GET', "./CONNECT", true);
+		xhr.open('GET', "./CONNECT-"+textClientIP.innerHTML, true);
 		xhr.send();
 		
 		xhr.addEventListener("readystatechange", processConnection, false);
@@ -72,6 +72,8 @@ function processConnection(e)
 	if(xhr.readyState == 4 && xhr.status == 200)
    	{
 		textHostIP.innerHTML = 'Doorbell Host IP: ' + xhr.responseText;
+		
+		
    	}
 }
 //called when a connection has successfully been made and streaming has begun
