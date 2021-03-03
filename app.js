@@ -51,6 +51,10 @@ buttonConnect.onclick = function()
 		
 		blockLoading.style.display = "block";
 		blockCamera.style.display = "none";
+		
+		let xhr = new XMLHttpRequest();
+		xhr.open('GET', "./index.html", true);
+		xhr.send();
 	}
 	else
 	{
