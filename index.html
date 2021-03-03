@@ -5,6 +5,15 @@
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
+		<!-- favicon details -->
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileColor" content="#da532c">
+		<meta name="theme-color" content="#ffffff">
+
 		<!-- name for webpage header -->
 		<title>MobileDoorbell</title> 
 		
@@ -21,23 +30,23 @@
 			<img src='https://rabidcodehog.github.io/camera-test/images/loading.gif' width='100%' height='100%' alt='loading gif'/>
 		</div>
 		<div><center>
-			<input type='button' onclick='turnOn()' value='CONNECT'/>
-			<input type='button' onclick='turnOff()' value='DISCONNECT'/>
+			<button id='buttonConnect' onclick='turnOn()' value='CONNECT'/>
+			<button id='buttonDisconnect' onclick='turnOff()' value='DISCONNECT'/>
 		</center></div>
 		<div id="cameraBlock" class="viewDiv">
 			<!-- Camera -->
 			<main id="camera">
 				<!-- Camera sensor -->
-				<canvas id="camera--sensor"></canvas>
+				<canvas id="cameraCanvas"></canvas>
 
 				<!-- Camera view -->
-				<video id="camera--view" autoplay playsinline></video>
+				<video id="cameraVideo" autoplay playsinline></video>
 				
 				<!-- Camera output -->
-				<img src="//:0" alt="" id="camera--output">
+				<img src="//:0" alt="" id="cameraOutput">
 				
 				<!-- Camera trigger -->
-				<button id="camera--trigger">Take a picture</button>
+				<button id="buttonSnapshot">Take a picture</button>
 			</main>
 		</div><hr/>
 		<!-- Reference to your JavaScript file -->
@@ -49,30 +58,6 @@
 		document.getElementById("cameraBlock").style.display = "none";
 		
 		document.getElementById('textClientIP').innerHTML = 'Connecting IP: ' + json.ip;
-	}
-		</script>
-		<script>
-	function turnOn() 
-	{
-		var load = document.getElementById("loadingBlock");
-		var camera = document.getElementById("cameraBlock");
-		if (camera.style.display === "none")
-		{
-			load.style.display = "none";
-			camera.style.display = "block";
-		}
-	}
-		</script>
-		<script>
-	function turnOff()
-	{
-		var load = document.getElementById("loadingBlock");
-		var camera = document.getElementById("cameraBlock");
-		if (camera.style.display === "block")
-		{
-			load.style.display = "block";
-			camera.style.display = "none";
-		}
 	}
 		</script>
 		<script type="application/javascript">
