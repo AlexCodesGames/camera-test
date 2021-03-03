@@ -112,7 +112,7 @@ function connectionDisconnect()
 
 //set up button functionality
 buttonDisconnect.onclick = function() { connectionDisconnect() };
-buttonConnect.onclick = function() { connectionAttempt }
+buttonConnect.onclick = function() { connectionAttempt() };
 // Take a picture when picture button is tapped
 buttonSnapshot.onclick = function() 
 {
