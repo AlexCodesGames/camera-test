@@ -100,7 +100,7 @@ function connectionSuccessful()
 	blockCamera.style.display = "block";
 }
 //ends any pending or existing connection
-function connectionDisconnect
+function connectionDisconnect()
 {
 	console.debug("connection closed");
 	
