@@ -17,12 +17,10 @@ const cameraOutput = document.querySelector("#cameraOutput")
 const cameraSensor = document.querySelector("#cameraCanvas")
 
 //used to initialize the webpage's entry state
-function initialize(json) 
+function initialize() 
 {
 	blockLoading.style.display = "none";
 	blockCamera.style.display = "none";
-
-	textClientIP.innerHTML = 'Connecting IP: ' + json.ip;
 }
 // Access the device camera and stream to cameraView
 function cameraStart() 
@@ -71,12 +69,6 @@ buttonSnapshot.onclick = function()
 	cameraOutput.src = cameraSensor.toDataURL("image/webp");
 	cameraOutput.classList.add("taken");
 };
-
-//updates the client's ip
-function getIP(json) 
-{
-	textClientIP.innerHTML = 'Connecting IP: ' + json.ip;
-}
 
 //sets initializer to activate when the webpage loads
 window.addEventListener("load", initialize, false);
