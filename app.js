@@ -19,7 +19,7 @@ const cameraSensor = document.querySelector("#cameraCanvas")
 //used to initialize the webpage's entry state
 function initialize() 
 {
-        console.log("Initializing...");
+        console.debug("Initializing...");
 	blockLoading.style.display = "none";
 	blockCamera.style.display = "none";
 }
