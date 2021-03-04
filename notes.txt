@@ -1,0 +1,7 @@
+Useful links:
+  NanoHTTPD interfaces:
+    https://www.baeldung.com/nanohttpd
+  Android video chat demo:
+    https://getstream.io/blog/livestream-video-and-chat-app-android/
+  IP camera stream demo:
+    https://ijoshsmith.com/2014/01/25/video-streaming-from-an-ip-camera-to-an-android-phone/
