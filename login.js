@@ -52,10 +52,10 @@ function connectionProcess(e)
 	if(xhr.readyState == 4 && xhr.status == 200)
 	{
 		console.debug("login response received");
-		//record host ip
+		//record host response to password
 		textHostIP.innerHTML = xhr.responseText;
 		
-		//send call to start streaming
+		//attempt to connect to main service
 		xhr = new XMLHttpRequest();
 		xhr.open('GET', "./START", true);
 		xhr.send();
