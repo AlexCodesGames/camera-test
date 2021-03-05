@@ -27,7 +27,7 @@ function connectionAttempt()
 
 	//create a connection request
 	xhr = new XMLHttpRequest();
-	xhr.open('GET', "./IP:"+textClientIP.innerHTML+"-PASSWORD:"+inputPassword.value, true);
+	xhr.open('GET', "./-IP:"+textClientIP.innerHTML+"-PASSWORD:"+inputPassword.value, true);
 	xhr.send();
 
 	isPending = true;
