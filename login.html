@@ -14,13 +14,16 @@
 		<!-- Link to your main style sheet-->
 		<link rel="stylesheet" href="https://rabidcodehog.github.io/camera-test/style.css"> 
 	</head>
-	<body onload="initialize()">
+	<body>
 		<div id="titleBlock">
 			<center><h1><strong>Mobile Doorbell Login</strong></h1></center>
 		</div></hr>
+		<div id="feedbackBlock"><center>
+			<center><h3 id="textFeedback">Mobile Doorbell Login</h3></center>
+		</center></div></hr>
 		<div id="loginBlock"><center>
 			<label for="psw"><b>Password</b></label>
-			<input type="password" placeholder="Enter Password" name="psw" required>
+			<input id="buttonPassword" type="password" placeholder="Enter Password" name="psw" required>
 			<button type="submit">Login</button>
 		</center></div></hr>
 	</body>
