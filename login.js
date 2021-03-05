@@ -55,7 +55,7 @@ function connectionProcess(e)
 	//if ready-state is finished but failed to aquire, disconnect
 	else if(xhr.readyState == 4)
 	{
-		textHostIP.innerHTML = "Response Timedout";
+		textFeedback.innerHTML = "Response Timedout";
 	}
 }
 //set up button functionality
