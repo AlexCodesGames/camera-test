@@ -33,17 +33,6 @@ function connectionAttempt()
 	
 	//add listener for response
 	xhr.addEventListener("readystatechange", connectionProcess, false);
-	//set timeout for no response
-	setTimeout(connectionTimeout, 4000);
-}
-//if there is a connection attempt pending but it times out
-function connectionTimeout()
-{
-	if(isPending == true)
-	{
-		textHostIP.innerHTML = "Response Timedout";
-		isPending = false
-	}
 }
 //processes returning connection details
 function connectionProcess(e)
@@ -65,7 +54,7 @@ function connectionProcess(e)
 	//if ready-state is finished but failed to aquire, disconnect
 	else if(xhr.readyState == 4)
 	{
-		connectionDisconnect();
+		textHostIP.innerHTML = "Response Timedout";
 	}
 }
 //set up button functionality
