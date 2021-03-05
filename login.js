@@ -1,6 +1,7 @@
 // Define constant links to document components
 //	text
 const textFeedback = document.querySelector("#textFeedback")
+const textClientIP = document.querySelector("#textClientIP")
 const buttonPassword = document.querySelector("#buttonPassword")
 const inputPassword = document.querySelector("#inputPassword")
 //	connection
@@ -26,7 +27,7 @@ function connectionAttempt()
 
 	//create a connection request
 	xhr = new XMLHttpRequest();
-	xhr.open('GET', "./PASSWORD-"+inputPassword.value, true);
+	xhr.open('GET', "./IP:"+textClientIP.innerHTML+"-PASSWORD:"+inputPassword.value, true);
 	xhr.send();
 
 	isPending = true;
