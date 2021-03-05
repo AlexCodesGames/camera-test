@@ -1,7 +1,6 @@
 // Define constant links to document components
 //	text
 const textFeedback = document.querySelector("#textFeedback")
-const textFeedback = document.querySelector("#textFeedback")
 const buttonPassword = document.querySelector("#buttonPassword")
 const inputPassword = document.querySelector("#inputPassword")
 //	connection
