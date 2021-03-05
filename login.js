@@ -3,6 +3,7 @@
 const textFeedback = document.querySelector("#textFeedback")
 const textFeedback = document.querySelector("#textFeedback")
 const buttonPassword = document.querySelector("#buttonPassword")
+const inputPassword = document.querySelector("#inputPassword")
 //	connection
 var xhr;
 var rtcConnection;
@@ -26,7 +27,7 @@ function connectionAttempt()
 
 	//create a connection request
 	xhr = new XMLHttpRequest();
-	xhr.open('GET', "./PASSWORD-"+buttonPassword.innerHTML, true);
+	xhr.open('GET', "./PASSWORD-"+inputPassword.value, true);
 	xhr.send();
 
 	isPending = true;
