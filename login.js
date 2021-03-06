@@ -44,13 +44,6 @@ function connectionProcess(e)
 		console.debug("login response received");
 		//record host response to password
 		textFeedback.innerHTML = xhr.responseText;
-		
-		//attempt to connect to main service
-		xhr = new XMLHttpRequest();
-		xhr.open('GET', "./START", true);
-		xhr.send();
-		
-		xhr.addEventListener("readystatechange", connectionSuccessful, false);
 	}
 	//if ready-state is finished but failed to aquire, disconnect
 	else if(xhr.readyState == 4)
