@@ -43,7 +43,7 @@ function connectionProcess(e)
 	{
 		console.debug("login response received");
 		//record host response to password
-		textHostIP.innerHTML = xhr.responseText;
+		textFeedback.innerHTML = xhr.responseText;
 		
 		//attempt to connect to main service
 		xhr = new XMLHttpRequest();
