@@ -49,6 +49,7 @@ function connectionProcess(e)
 	//if ready-state is finished but failed to aquire, disconnect
 	else if(xhr.readyState == 4)
 	{
+		console.debug("login response request failed");
 		textFeedback.innerHTML = "Response Timedout";
 	}
 }
