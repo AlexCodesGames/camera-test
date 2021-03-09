@@ -96,12 +96,12 @@ function connectionProcess(e)
 		myPeerConnection.onicegatheringstatechange = handleICEGatheringStateChangeEvent;
 		myPeerConnection.onsignalingstatechange = handleSignalingStateChangeEvent;
 		
-		/*/send call to start streaming
+		//send call to start streaming
 		xhr = new XMLHttpRequest();
 		xhr.open('GET', "./START", true);
 		xhr.send();
 		
-		xhr.addEventListener("readystatechange", connectionSuccessful, false);*/
+		xhr.addEventListener("readystatechange", connectionSuccessful, false);
    	}
 	//if ready-state is finished but failed to aquire, disconnect
 	else if(xhr.readyState == 4)
@@ -114,7 +114,7 @@ function connectionProcess(e)
 //called when a connection has successfully been made and streaming has begun
 function connectionSuccessful() 
 {
-	console.debug("connection established");
+	console.debug("stream beginning...");
 	
 	blockLoading.style.display = "none";
 	blockCamera.style.display = "block";
