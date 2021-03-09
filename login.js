@@ -28,7 +28,7 @@ function connectionAttempt()
 	//create a connection request
 	xhr = new XMLHttpRequest();
 	xhr.open('GET', "./-IP:"+textClientIP.innerHTML+"-PASSWORD:"+inputPassword.value, true);
- 	xhr.setRequestHeader("Cache-Control", no-store);
+ 	xhr.setRequestHeader("Cache-Control", "no-store");
 	xhr.send();
 
 	isPending = true;
