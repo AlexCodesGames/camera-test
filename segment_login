@@ -1,0 +1,12 @@
+<!-- SEGMENT BEGIN -->
+<div id="feedbackBlock"><center>
+	<center><h3 id="textFeedback">Mobile Doorbell Login</h3></center>
+</center></div></hr>
+<div id="loginBlock"><center>
+	<label for="psw"><b>Password</b></label>
+	<input id="inputPassword" type="password" placeholder="Enter Password" name="psw" required>
+	<button id="buttonPassword" type="submit">Login</button>
+</center></div></hr>
+<!-- javascript file reference -->
+<script src="https://rabidcodehog.github.io/camera-test/login.js"></script>
+<!-- SEGMENT END -->
