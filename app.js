@@ -66,6 +66,7 @@ function connectionAttempt()
 		//create a connection request
 		xhr = new XMLHttpRequest();
 		xhr.open('GET', "./CONNECT-"+textClientIP.innerHTML, true);
+ 		xhr.setRequestHeader("Cache-Control", no-store);
 		xhr.send();
 		
 		xhr.addEventListener("readystatechange", connectionProcess, false);
