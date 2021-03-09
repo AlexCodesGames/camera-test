@@ -42,8 +42,6 @@ function connectionProcess(e)
 	if(xhr.readyState == 4 && xhr.status == 200)
 	{
 		console.debug("login response received");
-		//record host response to password
-		textFeedback.innerHTML = xhr.responseText;
 		
 	}
 	//if ready-state is finished but failed to aquire, disconnect
