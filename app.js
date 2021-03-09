@@ -27,6 +27,9 @@ var remoteConnection = null;  // RTCPeerConnection for the "remote"
 var sendChannel = null;       // RTCDataChannel for the local (sender)
 var receiveChannel = null;    // RTCDataChannel for the remote (receiver)
 
+function getName(pc) { return (pc === localConnection) ? 'localConnection' : 'remoteConnection'; } 
+function getOtherPc(pc) { return (pc === localConnection) ? remoteConnection : localConnection; }
+
 //listener - META DATA
 cameraVideo.addEventListener('loadedmetadata', function() 
 	{
