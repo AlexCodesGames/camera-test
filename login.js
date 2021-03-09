@@ -43,6 +43,7 @@ function connectionProcess(e)
 	if(xhr.readyState == 4 && xhr.status == 200)
 	{
 		console.debug("login response received");
+		textFeedback.innerHTML = xhr.response;
 		
 	}
 	//if ready-state is finished but failed to aquire, disconnect
