@@ -1,5 +1,6 @@
 // Define constant links to document components
 //	text
+const blockBody = document.querySelector("#BODY")
 const textFeedback = document.querySelector("#textFeedback")
 const textClientIP = document.querySelector("#textClientIP")
 const buttonPassword = document.querySelector("#buttonPassword")
@@ -43,7 +44,7 @@ function connectionProcess(e)
 	if(xhr.readyState == 4 && xhr.status == 200)
 	{
 		console.debug("login response received");
-		textFeedback.innerHTML = xhr.response;
+		BODY.innerHTML = xhr.response;
 		
 	}
 	//if ready-state is finished but failed to aquire, disconnect
