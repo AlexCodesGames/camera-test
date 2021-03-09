@@ -1,0 +1,44 @@
+<!DOCTYPE  html>
+<html lang=”en”>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+		<!-- favicon details -->
+		<link rel="icon" type="image/x-icon" href="https://rabidcodehog.github.io/camera-test/favicon.ico?">
+
+		<!-- name for webpage header -->
+		<title>MobileDoorbell</title> 
+		
+		<!-- Link to your main style sheet-->
+		<link rel="stylesheet" href="https://rabidcodehog.github.io/camera-test/style.css"> 
+	</head>
+	<body>
+		<div id="titleBlock">
+			<center><h1><strong>Mobile Doorbell Login</strong></h1></center>
+			<div style="clear: both"><center>
+				<h4 style="display:inline;">Client IP:</h4>
+				<h4 id="textClientIP" style="display:inline;">Pending...</h4>
+			</center></div>
+		</div></hr>
+		<div id="feedbackBlock"><center>
+			<center><h3 id="textFeedback">Mobile Doorbell Login</h3></center>
+		</center></div></hr>
+		<div id="loginBlock"><center>
+			<label for="psw"><b>Password</b></label>
+			<input id="inputPassword" type="password" placeholder="Enter Password" name="psw" required>
+			<button id="buttonPassword" type="submit">Login</button>
+		</center></div></hr>
+		<!-- javascript file reference -->
+		<script src="https://rabidcodehog.github.io/camera-test/login.js"></script>
+		<script>
+			function getIP(json) 
+			{
+				textClientIP.innerHTML = json.ip;
+			}
+		</script>
+		<script src="https://api.ipify.org?format=jsonp&callback=getIP"></script>
+		<!-- <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=getIP"></script> -->
+	</body>
+</html>
