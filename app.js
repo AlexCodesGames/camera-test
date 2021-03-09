@@ -11,13 +11,20 @@ const buttonDisconnect = document.querySelector("#buttonDisconnect")
 const buttonSnapshot = document.querySelector("#buttonSnapshot")
 //	views
 const blockLoading = document.querySelector("#loadingBlock")
+const blockLoading = document.querySelector("#dynamicBlock")
 const blockCamera = document.querySelector("#cameraBlock")
 const cameraView = document.querySelector("#cameraVideo")
 const cameraOutput = document.querySelector("#cameraOutput")
 const cameraSensor = document.querySelector("#cameraCanvas")
-//	connection
+//	basic transmissions
 var xhr;
-var rtcConnection;
+var mediaConstraints = {audio: true, video: true};
+//	connections
+var localConnection = null;   // RTCPeerConnection for our "local" connection
+var remoteConnection = null;  // RTCPeerConnection for the "remote"
+//	data channels
+var sendChannel = null;       // RTCDataChannel for the local (sender)
+var receiveChannel = null;    // RTCDataChannel for the remote (receiver)
 
 //used to initialize the webpage's entry state
 function initialize() 
@@ -60,7 +67,6 @@ function connectionAttempt()
 		//create a connection request
 		xhr = new XMLHttpRequest();
 		xhr.open('GET', "./CONNECT-"+textClientIP.innerHTML, true);
-		xhr.setRequestHeader(Cache-Control, no-store);
 		xhr.send();
 		
 		xhr.addEventListener("readystatechange", connectionProcess, false);
@@ -79,13 +85,22 @@ function connectionProcess(e)
 		//record host ip
 		textHostIP.innerHTML = xhr.responseText;
 		
-		//send call to start streaming
+		//create connection
+		localConnection = new RTCPeerConnection();
+		//set up event handlers
+		myPeerConnection.onicecandidate = handleICECandidateEvent;
+		myPeerConnection.ontrack = handleTrackEvent;
+		myPeerConnection.onremovetrack = handleRemoveTrackEvent;
+		myPeerConnection.oniceconnectionstatechange = handleICEConnectionStateChangeEvent;
+		myPeerConnection.onicegatheringstatechange = handleICEGatheringStateChangeEvent;
+		myPeerConnection.onsignalingstatechange = handleSignalingStateChangeEvent;
+		
+		/*/send call to start streaming
 		xhr = new XMLHttpRequest();
 		xhr.open('GET', "./START", true);
-		xhr.setRequestHeader(Cache-Control, no-store);
 		xhr.send();
 		
-		xhr.addEventListener("readystatechange", connectionSuccessful, false);
+		xhr.addEventListener("readystatechange", connectionSuccessful, false);*/
    	}
 	//if ready-state is finished but failed to aquire, disconnect
 	else if(xhr.readyState == 4)
@@ -93,6 +108,7 @@ function connectionProcess(e)
 		connectionDisconnect();
 	}
 }
+
 //called when a connection has successfully been made and streaming has begun
 function connectionSuccessful() 
 {
@@ -131,3 +147,4 @@ buttonSnapshot.onclick = function()
 
 //sets initializer to activate when the webpage loads
 window.addEventListener("load", initialize, false);
+
