@@ -11,7 +11,6 @@ const buttonDisconnect = document.querySelector("#buttonDisconnect")
 const buttonSnapshot = document.querySelector("#buttonSnapshot")
 //	views
 const blockLoading = document.querySelector("#loadingBlock")
-const blockLoading = document.querySelector("#dynamicBlock")
 const blockCamera = document.querySelector("#cameraBlock")
 const cameraView = document.querySelector("#cameraVideo")
 const cameraOutput = document.querySelector("#cameraOutput")
