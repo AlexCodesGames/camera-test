@@ -98,13 +98,15 @@ function connectionProcess(e)
 		const configuration = {};
 
 		//set up connections
+		//	local
 		localConnection = new RTCPeerConnection(configuration);
-		localConnection.addEventListener('icecandidate', e => onIceCandidate(pc1, e));
+		localConnection.addEventListener('icecandidate', e => onIceCandidate(localConnection, e));
+		localConnection.addEventListener('iceconnectionstatechange', e => onIceStateChange(localConnection, e));
+		//	remote
 		remoteConnection = new RTCPeerConnection(configuration);
-		remoteConnection.addEventListener('icecandidate', e => onIceCandidate(pc2, e));
-		remoteConnection.addEventListener('icecandidate', e => onIceCandidate(pc2, e));
-		localConnection.addEventListener('iceconnectionstatechange', e => onIceStateChange(pc1, e));
-		localConnection.addEventListener('iceconnectionstatechange', e => onIceStateChange(pc2, e));
+		remoteConnection.addEventListener('icecandidate', e => onIceCandidate(remoteConnection, e));
+		remoteConnection.addEventListener('iceconnectionstatechange', e => onIceStateChange(remoteConnection, e));
+		
 		remoteConnection.addEventListener('track', gotRemoteStream);
 
 		//attmpet stream offer
