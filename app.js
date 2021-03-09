@@ -65,7 +65,7 @@ function connectionAttempt()
 		
 		//create a connection request
 		xhr = new XMLHttpRequest();
-		xhr.open('GET', "./CONNECT-"+textClientIP.innerHTML, true);
+		xhr.open('GET', "./-"+textClientIP.innerHTML+"-CONNECT", true);
  		xhr.setRequestHeader("Cache-Control", "no-store");
 		xhr.send();
 		
@@ -82,6 +82,7 @@ function connectionProcess(e)
 	//check ready-state change type and success
 	if(xhr.readyState == 4 && xhr.status == 200)
    	{
+        	console.debug("successfully established connection");
 		//record host ip
 		textHostIP.innerHTML = xhr.responseText;
 		
@@ -105,6 +106,7 @@ function connectionProcess(e)
 	//if ready-state is finished but failed to aquire, disconnect
 	else if(xhr.readyState == 4)
 	{
+        	console.debug("failed to establish connection");
 		connectionDisconnect();
 	}
 }
@@ -124,6 +126,14 @@ function connectionDisconnect()
 	
 	blockLoading.style.display = "none";
 	blockCamera.style.display = "none";
+		
+	//create a connection request
+	xhr = new XMLHttpRequest();
+	xhr.open('GET', "./-"+textClientIP.innerHTML+"-DISCONNECT", true);
+	xhr.setRequestHeader("Cache-Control", "no-store");
+	xhr.send();
+
+	//xhr.addEventListener("readystatechange", connectionProcess, false);
 	
 	textHostIP.innerHTML = "disconnected";
 }
