@@ -65,7 +65,7 @@ function connectionAttempt()
 		
 		//create a connection request
 		xhr = new XMLHttpRequest();
-		xhr.open('GET', "./-"+textClientIP.innerHTML+"-CONNECT", true);
+		xhr.open('GET', "./-IP:"+textClientIP.innerHTML+"-CONNECT", true);
  		xhr.setRequestHeader("Cache-Control", "no-store");
 		xhr.send();
 		
@@ -129,7 +129,7 @@ function connectionDisconnect()
 		
 	//create a connection request
 	xhr = new XMLHttpRequest();
-	xhr.open('GET', "./-"+textClientIP.innerHTML+"-DISCONNECT", true);
+	xhr.open('GET', "./-IP:"+textClientIP.innerHTML+"-DISCONNECT", true);
 	xhr.setRequestHeader("Cache-Control", "no-store");
 	xhr.send();
 
