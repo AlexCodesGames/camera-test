@@ -85,7 +85,7 @@ function connectionAttempt()
 }
 
 //processes returning connection details
-function connectionProcess(e)
+async function connectionProcess(e)
 {
 	//check ready-state change type and success
 	if(xhr.readyState == 4 && xhr.status == 200)
