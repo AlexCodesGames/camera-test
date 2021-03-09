@@ -44,14 +44,19 @@ function connectionProcess(e)
 	//check ready-state change type and success
 	if(xhr.readyState == 4 && xhr.status == 200)
 	{
-		console.debug("login response received");
+		console.debug("login response received - ACCEPTED");
 		HEAD.innerHTML = xhr.response;
-		
+	}
+	//if ready-state is finished but failed to aquire, disconnect
+	else if(xhr.readyState == 4 && xhr.status == 402)
+	{
+		console.debug("login response received - DENIED");
+		textFeedback.innerHTML = "Invalid Password";
 	}
 	//if ready-state is finished but failed to aquire, disconnect
 	else if(xhr.readyState == 4)
 	{
-		console.debug("login response request failed");
+		console.debug("login response request failed - timeout");
 		textFeedback.innerHTML = "Response Timedout";
 	}
 }
