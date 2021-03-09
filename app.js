@@ -60,6 +60,7 @@ function connectionAttempt()
 		//create a connection request
 		xhr = new XMLHttpRequest();
 		xhr.open('GET', "./CONNECT-"+textClientIP.innerHTML, true);
+		xhr.setRequestHeader(Cache-Control, no-store);
 		xhr.send();
 		
 		xhr.addEventListener("readystatechange", connectionProcess, false);
@@ -81,6 +82,7 @@ function connectionProcess(e)
 		//send call to start streaming
 		xhr = new XMLHttpRequest();
 		xhr.open('GET', "./START", true);
+		xhr.setRequestHeader(Cache-Control, no-store);
 		xhr.send();
 		
 		xhr.addEventListener("readystatechange", connectionSuccessful, false);
