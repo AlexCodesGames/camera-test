@@ -48,7 +48,7 @@ function connectionProcess(e)
 		HEAD.innerHTML = xhr.response;
 	}
 	//if ready-state is finished but failed to aquire, disconnect
-	else if(xhr.readyState == 4 && xhr.status == 402)
+	else if(xhr.readyState == 4 && xhr.status == 406)
 	{
 		console.debug("login response received - DENIED");
 		textFeedback.innerHTML = "Invalid Password";
