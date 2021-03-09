@@ -33,7 +33,7 @@ cameraVideo.addEventListener('loadedmetadata', function()
 	  console.log(`Remote video videoWidth: ${this.videoWidth}px,  videoHeight: ${this.videoHeight}px`);
 	});
 //listener - RESIZE
-remoteVideo.addEventListener('resize', () => 
+cameraVideo.addEventListener('resize', () => 
 	{
 		console.log(`Remote video size changed to ${remoteVideo.videoWidth}x${remoteVideo.videoHeight}`);
 		// We'll use the first onsize callback as an indication that video has started
