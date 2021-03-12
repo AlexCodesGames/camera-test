@@ -11,3 +11,16 @@ READ:
   https://dev.to/hamitdemir/how-to-use-webrtc-sdk-in-native-android-app-3m33
   https://medium.com/@SergioPaniego/tutorial-on-how-to-make-the-simplest-webrtc-android-app-daacb5c8d133
   https://vivekc.xyz/peer-to-peer-video-calling-webrtc-for-android-4132fd0ac54
+
+TODO:
+  -migrate to https certs
+  -finish external connection testing
+  -
+
+User Setup Process:
+  1- install app
+  2- set phone's IP to static
+  3- port forward (allow for external web access to phone from anywhere)
+  4- register with a dynamic dns service (allows the user to connect to their phone-server from outside their network)
+  5- start phone, apply host settings
+  6- install phone in provided hardware
