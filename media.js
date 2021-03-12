@@ -24,5 +24,15 @@ function handleLocalMediaStreamError(error)
   console.log('navigator.getUserMedia error: ', error);
 }
 
+async function getConnectedDevices(type) 
+{
+    const devices = await navigator.mediaDevices.enumerateDevices();
+    return devices.filter(device => device.kind === type)
+}
+
+const videoCameras = getConnectedDevices('videoinput');
+console.log('Cameras found:', videoCameras);
+
+
 // Initializes media stream.
-navigator.mediaDevices.getUserMedia(mediaStreamConstraints).then(gotLocalMediaStream).catch(handleLocalMediaStreamError);
+//navigator.mediaDevices.getUserMedia(mediaStreamConstraints).then(gotLocalMediaStream).catch(handleLocalMediaStreamError);
