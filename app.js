@@ -56,7 +56,8 @@ function initialize()
 	
 	//set default view state
 	blockLoading.style.display = "none";
-	blockCamera.style.display = "none";
+	//blockCamera.style.display = "none";
+	blockCamera.style.display = "block";
 	
 	textHostIP.innerHTML = "disconnected";
 	
@@ -232,7 +233,8 @@ function connectionDisconnect()
 	console.debug("connection closed");
 	
 	blockLoading.style.display = "none";
-	blockCamera.style.display = "none";
+	//blockCamera.style.display = "none";
+	blockCamera.style.display = "block";
 		
 	//close connections
 	localConnection.close();
