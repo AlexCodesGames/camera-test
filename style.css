@@ -23,16 +23,6 @@ img{
 	height: 100%;
 	width: 100%;
 }
-#camera, #cameraCanvas, #cameraOutput{
-	position: fixed;
-	object-fit: cover;
-}
-#cameraVideo, #cameraCanvas, #cameraOutput{
-	transform: scaleX(-1);
-	filter: FlipH;
-	max-width: 100%;
-	width: 320px;
-}
 #buttonConnect{
 	width: 120px;
 	background-color: black;
