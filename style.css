@@ -19,10 +19,12 @@ img{
 	height: 300px;
 	width: 300px;
 }
-#camera, #cameraVideo, #cameraCanvas, #cameraOutput{
-	position: fixed;
+#cameraVideo{
 	height: 100%;
 	width: 100%;
+}
+#camera, #cameraCanvas, #cameraOutput{
+	position: fixed;
 	object-fit: cover;
 }
 #cameraVideo, #cameraCanvas, #cameraOutput{
