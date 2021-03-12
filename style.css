@@ -45,7 +45,7 @@ img{
 	box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
 	position: fixed;
 	bottom: 30px;
-	left: calc(20% - 100px);
+	left: calc(20% - 60px);
 }
 #buttonDisconnect{
 	width: 120px;
@@ -59,7 +59,7 @@ img{
 	box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
 	position: fixed;
 	bottom: 30px;
-	left: calc(80% - 100px);
+	left: calc(80% - 60px);
 }
 #buttonSnapshot{
 	width: 120px;
@@ -73,7 +73,7 @@ img{
 	box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
 	position: fixed;
 	bottom: 30px;
-	left: calc(50% - 100px);
+	left: calc(50% - 60px);
 }
 .taken{
 	height: 100px!important;
