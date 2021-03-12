@@ -15,7 +15,8 @@ READ:
 TODO:
   -migrate to https certs
   -finish external connection testing
-  -
+  -UI polish
+  -bug hunt
 
 User Setup Process:
   1- install app
