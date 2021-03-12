@@ -6,7 +6,7 @@ const mediaStreamConstraints = {
 };
 
 // Video element where stream will be placed.
-const localVideo = document.querySelector('video');
+const localVideo = document.querySelector('cameraVideo');
 
 // Local stream that will be reproduced on the video.
 let localStream;
