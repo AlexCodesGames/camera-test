@@ -30,7 +30,7 @@ img{
     filter: FlipH;
 }
 #buttonConnect{
-    width: 200px;
+    width: 120px;
     background-color: black;
     color: white;
     font-size: 16px;
@@ -44,7 +44,7 @@ img{
     left: calc(20% - 100px);
 }
 #buttonDisconnect{
-    width: 200px;
+    width: 120px;
     background-color: black;
     color: white;
     font-size: 16px;
@@ -58,7 +58,7 @@ img{
     left: calc(80% - 100px);
 }
 #buttonSnapshot{
-    width: 200px;
+    width: 120px;
     background-color: black;
     color: white;
     font-size: 16px;
