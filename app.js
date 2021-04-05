@@ -76,11 +76,11 @@ function connectionAttempt()
 	{
 		//request stream from connected doorbell
         	console.debug("requesting stream...");
+		textHostIP.innerHTML = "stream pending...";
+		currentState = 1;
 		
 		blockLoading.style.display = "block";
 		blockCamera.style.display = "none";
-		
-		textHostIP.innerHTML = "stream pending...";
 		
 		//create a connection request
 		xhr = new XMLHttpRequest();
@@ -109,9 +109,8 @@ async function connectionProcess(e)
 	if(xhr.readyState == 4 && xhr.status == 200)
    	{
         	console.debug("successfully established connection");
-		currentState = 2;
-		//record host ip
 		textHostIP.innerHTML = xhr.responseText;
+		currentState = 2;
 	 
 		startTime = window.performance.now();
 		const configuration = {};
