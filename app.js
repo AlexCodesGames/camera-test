@@ -1,6 +1,10 @@
 // Set constraints for the video stream
 var constraints = { video: { facingMode: "user" }, audio: false };
 
+//current state for webpage receiving
+//	0: logged in, 1: stream requested, 2: stream active
+var currentState;
+
 // Define constant links to document components
 //	text
 const textClientIP = document.querySelector("#textClientIP")
@@ -53,38 +57,46 @@ cameraVideo.addEventListener('resize', () =>
 function initialize() 
 {
         console.debug("initializing...");
+	currentState = 0;
 	
 	//set default view state
 	blockLoading.style.display = "none";
-	//blockCamera.style.display = "none";
-	blockCamera.style.display = "block";
+	blockCamera.style.display = "none";
 	
 	textHostIP.innerHTML = "disconnected";
 	
 	console.debug("initialization complete");
 }
 
-//attempts a connection to the device's camera
+//attempts a connection to the device's camera and begins the stream
 function connectionAttempt()
 {
-	if(blockCamera.style.display === "none")
+	//if logged in
+	if(currentState == 0)
 	{
-        	console.debug("attempting connection...");
+		//request stream from connected doorbell
+        	console.debug("requesting stream...");
 		
 		blockLoading.style.display = "block";
 		blockCamera.style.display = "none";
 		
 		//create a connection request
 		xhr = new XMLHttpRequest();
-		xhr.open('GET', "./-IP:"+textClientIP.innerHTML+"-CONNECT", true);
+		xhr.open('GET', "./-IP:"+textClientIP.innerHTML+"-START", true);
  		xhr.setRequestHeader("Cache-Control", "no-store");
 		xhr.send();
 		
 		xhr.addEventListener("readystatechange", connectionProcess, false);
 	}
+	//if still waiting for a stream request to resolve
+	if(currentState == 1)
+   	{
+        	console.debug("stream request being processed...");
+   	}
+	//if stream is already active
 	else
 	{
-        	console.debug("connection already established");
+        	console.debug("stream already active");
 	}
 }
 
