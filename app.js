@@ -107,6 +107,7 @@ async function connectionProcess(e)
 	if(xhr.readyState == 4 && xhr.status == 200)
    	{
         	console.debug("successfully established connection");
+		currentState = 2;
 		//record host ip
 		textHostIP.innerHTML = xhr.responseText;
 	 
@@ -243,6 +244,7 @@ function onIceStateChange(pc, event)
 function connectionDisconnect()
 {
 	console.debug("connection closed");
+	currentState = 0;
 	
 	blockLoading.style.display = "none";
 	//blockCamera.style.display = "none";
