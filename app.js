@@ -250,8 +250,7 @@ function connectionDisconnect()
 	textHostIP.innerHTML = "stream disabled";
 	
 	blockLoading.style.display = "none";
-	//blockCamera.style.display = "none";
-	blockCamera.style.display = "block";
+	blockCamera.style.display = "none";
 		
 	//close connections
 	localConnection.close();
