@@ -63,7 +63,7 @@ function initialize()
 	blockLoading.style.display = "none";
 	blockCamera.style.display = "none";
 	
-	textHostIP.innerHTML = "disconnected";
+	textHostIP.innerHTML = "stream disabled";
 	
 	console.debug("initialization complete");
 }
@@ -79,6 +79,8 @@ function connectionAttempt()
 		
 		blockLoading.style.display = "block";
 		blockCamera.style.display = "none";
+		
+		textHostIP.innerHTML = "stream pending...";
 		
 		//create a connection request
 		xhr = new XMLHttpRequest();
@@ -245,6 +247,7 @@ function connectionDisconnect()
 {
 	console.debug("connection closed");
 	currentState = 0;
+	textHostIP.innerHTML = "stream disabled";
 	
 	blockLoading.style.display = "none";
 	//blockCamera.style.display = "none";
@@ -263,8 +266,6 @@ function connectionDisconnect()
 	xhr.send();
 
 	//xhr.addEventListener("readystatechange", connectionProcess, false);
-	
-	textHostIP.innerHTML = "disconnected";
 }
 
 //set up button functionality
